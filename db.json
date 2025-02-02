@@ -1,0 +1,50 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "The Covenant of Water",
+      "author": "Abraham Verghese",
+      "genre": "Fiction",
+      "favorite": false
+    },
+    {
+      "id": "2",
+      "title": "The God in the Woods",
+      "author": "Liz Moore",
+      "genre": "Mystery",
+      "favorite": false
+    },
+    {
+      "id": "3",
+      "title": "The Silmarillion",
+      "author": "J.R.R. Tolkien",
+      "genre": "Sci-Fi/Fantasy",
+      "favorite": true
+    },
+    {
+      "id": "6",
+      "title": "The Assassin's Blade",
+      "author": "Sarah J. Maas",
+      "genre": "Sci-Fi/Fantasy",
+      "favorite": false
+    },
+    {
+      "id": "24a6",
+      "title": "A Little Life",
+      "author": "Hanya Yanagihara",
+      "genre": "Fiction"
+    },
+    {
+      "id": "3a05",
+      "title": "Babel",
+      "author": "R.F. Kuang",
+      "genre": "Sci-Fi/Fantasy"
+    },
+    {
+      "id": "26cc",
+      "title": "The GOldfish",
+      "author": "Donna Tart",
+      "genre": "Fiction"
+    }
+  ]
+}

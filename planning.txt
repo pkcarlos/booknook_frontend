@@ -1,0 +1,7 @@
+BookNook
+
+Functionality:
+- View list of books user has read
+- Add book to list
+- Delete book from list
+- Edit book in list
