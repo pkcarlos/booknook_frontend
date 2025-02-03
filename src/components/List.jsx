@@ -1,7 +1,7 @@
 import Book from './Book'
 import bookService from '../services/books'
 
-const List = ({ books, setBooks, searchText }) => {
+const List = ({ books, setBooks, searchText, setSuccessMessage }) => {
   const filteredBooks = books.filter(book => book.title.toLowerCase().includes(searchText.toLowerCase()))
   books = searchText.length !== 0 ? filteredBooks : books // filter search
 
