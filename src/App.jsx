@@ -38,6 +38,7 @@ const App = () => {
     setNewSearch(event.target.value)
   }
   const [successMessage, setSuccessMessage] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
   useEffect(() => {
     bookService
@@ -50,7 +51,7 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Notification message={successMessage} />
+      <Notification successMessage={successMessage} errorMessage={errorMessage} />
       <form>
         <div>
           filter titles with <input value={newSearch} onChange={handleSearchChange} />
@@ -58,7 +59,7 @@ const App = () => {
       </form>
 
       <SubHeader text='Add a Book' />
-      <NewBookForm books={books} setBooks={setBooks} setSuccessMessage={setSuccessMessage} />
+      <NewBookForm books={books} setBooks={setBooks} setSuccessMessage={setSuccessMessage} setErrorMessage={setErrorMessage} />
 
       <SubHeader text='Book List' />
       <List books={books} searchText={newSearch} setBooks={setBooks} setSuccessMessage={setSuccessMessage} />

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import bookService from '../services/books'
 
-const NewBookForm = ({ books, setBooks, setSuccessMessage }) => {
+const NewBookForm = ({ books, setBooks, setSuccessMessage, setErrorMessage }) => {
   const [newTitle, setNewTitle] = useState('')
   const [newAuthor, setNewAuthor] = useState('')
   const [newGenre, setNewGenre] = useState('')
@@ -17,6 +17,7 @@ const NewBookForm = ({ books, setBooks, setSuccessMessage }) => {
   const handleGenreChange = (event) => {
     setNewGenre(event.target.value)
   }
+
   const addBook = (event) => {
     event.preventDefault()
     const newBook = {
@@ -36,7 +37,14 @@ const NewBookForm = ({ books, setBooks, setSuccessMessage }) => {
           setSuccessMessage(`${newBook.title} has been added to the list.`)
           setTimeout(() => {
             setSuccessMessage(null)
-          }, 5000)
+          }, 3000)
+        })
+        .catch(error => {
+          console.log(error.response.data.error)
+          setErrorMessage(error.response.data.error)
+          setTimeout(() => {
+            setErrorMessage(null)
+          }, 3000)
         })
     }
 
