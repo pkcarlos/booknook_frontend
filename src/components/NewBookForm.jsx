@@ -24,29 +24,25 @@ const NewBookForm = ({ books, setBooks, setSuccessMessage, setErrorMessage }) =>
       title: newTitle,
       author: newAuthor,
       genre: newGenre,
+      favorite: true
     }
 
-    //prevent adding existing books
-    if (books.map(book => book.title.toLowerCase()).includes(newTitle.toLowerCase())) {
-      alert(`${newTitle} has already been added.`)
-    } else {
-      bookService
-        .createBook(newBook)
-        .then(returnedBooks => {
-          setBooks(books.concat(returnedBooks))
-          setSuccessMessage(`${newBook.title} has been added to the list.`)
-          setTimeout(() => {
-            setSuccessMessage(null)
-          }, 3000)
-        })
-        .catch(error => {
-          console.log(error.response.data.error)
-          setErrorMessage(error.response.data.error)
-          setTimeout(() => {
-            setErrorMessage(null)
-          }, 3000)
-        })
-    }
+    bookService
+      .createBook(newBook)
+      .then(returnedBooks => {
+        setBooks(books.concat(returnedBooks))
+        setSuccessMessage(`${newBook.title} has been added to the list.`)
+        setTimeout(() => {
+          setSuccessMessage(null)
+        }, 3000)
+      })
+      .catch(error => {
+        console.log(error.response.data.error)
+        setErrorMessage(error.response.data.error)
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 3000)
+      })
 
     setNewTitle('')
     setNewAuthor('')
@@ -54,20 +50,25 @@ const NewBookForm = ({ books, setBooks, setSuccessMessage, setErrorMessage }) =>
   }
 
   return (
-    <form onSubmit={addBook}>
-    <div>
-      title: <input value={newTitle} onChange={handleTitleChange} />
+    <div className="formDiv">
+      <h2>Add a book</h2>
+
+      <form onSubmit={addBook}>
+      <div>
+        title: <input value={newTitle} onChange={handleTitleChange} />
+      </div>
+      <div>
+        author: <input value={newAuthor} onChange={handleAuthorChange} />
+      </div>
+      <div>
+        genre: <input value={newGenre} onChange={handleGenreChange} />
+      </div>
+      <div>
+        <button type="submit">add</button>
+      </div>
+      </form>
     </div>
-    <div>
-      author: <input value={newAuthor} onChange={handleAuthorChange} />
-    </div>
-    <div>
-      genre: <input value={newGenre} onChange={handleGenreChange} />
-    </div>
-    <div>
-      <button type="submit">add</button>
-    </div>
-  </form>
+
   )
 }
 

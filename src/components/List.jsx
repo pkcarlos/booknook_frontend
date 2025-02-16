@@ -37,9 +37,14 @@ const List = ({ books, setBooks, searchText, setSuccessMessage }) => {
   }
 
   return (
-    <ul>
-      {books.map(book => <Book key={book.id} book={book} toggleFavorite={toggleFavorite} deleteBook={handleDelete} />)}
-    </ul>
+    <div className="listDiv">
+      <h2>Book list</h2>
+    
+      <ul>
+        {books.map(book => <Book key={book.id} book={book} toggleFavorite={toggleFavorite} deleteBook={handleDelete} />)}
+      </ul>
+    </div>
+
   )
 }
 
